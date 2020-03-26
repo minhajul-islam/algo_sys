@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import {Table} from 'antd';
+import {Table,notification,Button,Popconfirm} from 'antd';
+import {data} from '../../data/data';
+
 
 const ProblemList = () => {
     let columns = [
@@ -22,37 +24,35 @@ const ProblemList = () => {
         {
             title: 'Site',
             dataIndex: 'site',
-        }
-    ];
-    let data = [
-        {
-            pid: '100',
-            date: '22/12/2019',
-            name: 'The 3n + 1 problem',
-            type:'Data structure - array',
-            site:'uva'
         },
         {
-            pid: '100',
-            date: '22/12/2019',
-            name: 'The 3n + 1 problem',
-            type:'Data structure - array',
-            site:'uva'
+            title: '',
+            dataIndex: '',
+            render: (text, record) =>
+                 (
+                     <Button type="link" block
+                     onClick={seeDetails}
+                     >
+                         See Details
+                     </Button>
+                ),
         },
-        {
-            pid: '100',
-            date: '22/12/2019',
-            name: 'The 3n + 1 problem',
-            type:'Data structure - array',
-            site:'uva'
-        }
     ];
-    const onChange = () => {
 
+    const seeDetails = item => {
+        notification.open({
+            message: 'Notification Title',
+            description:
+                'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+            onClick: () => {
+                console.log('Notification Clicked!');
+            },
+        });
     };
+
     return (
         <div>
-            <Table columns={columns} dataSource={data} onChange={onChange}/>
+            <Table columns={columns} dataSource={data}  />
         </div>
     );
 };
