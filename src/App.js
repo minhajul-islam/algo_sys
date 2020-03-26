@@ -1,26 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Button } from 'antd';
 import './App.css';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { Row, Col } from 'antd';
+import { Card } from 'antd';
+import ProblemList from "./page/programming/ProblemList";
+const { Header, Content, Footer } = Layout;
 
-function App() {
-  return (
+
+const App = () => (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Layout className="layout">
+            <Header>
+                <div className="logo" >
+                    <img height={62}  width={120} alt="example" src="https://miro.medium.com/max/3300/1*nUZTZdDBKuci35Ss42bhbQ.jpeg" />
+                </div>
+                <Menu
+                    theme="dark"
+                    mode="horizontal"
+                    defaultSelectedKeys={['2']}
+                >
+                    <Menu.Item key="1">Home</Menu.Item>
+                    <Menu.Item key="2">programming</Menu.Item>
+                    <Menu.Item key="3">Contact us</Menu.Item>
+                </Menu>
+            </Header>
+            <Content style={{ padding:'50px' }}>
+                <div className="site-layout-content">
+                    <Row>
+                        <Col span={8} >
+                            <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
+                                <p>Card content</p>
+                                <p>Card content</p>
+                                <p>Card content</p>
+                            </Card>
+                        </Col>
+                        <Col span={8} >
+                            <ProblemList/>
+                        </Col>
+                        <Col span={8} >
+                            <img height={200}  width={200} alt="example" src="https://miro.medium.com/max/3300/1*nUZTZdDBKuci35Ss42bhbQ.jpeg" />
+                        </Col>
+                    </Row>
+                </div>
+            </Content>
+            <Footer style={{color:'#00e',textAlign:'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
+        </Layout>
     </div>
-  );
-}
+);
+
 
 export default App;
