@@ -27,21 +27,7 @@ const App = () => (
             </Header>
             <Content style={{ padding:'50px' }}>
                 <div className="site-layout-content">
-                    <Row>
-                        <Col span={8} >
-                            <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
-                                <p>Card content</p>
-                                <p>Card content</p>
-                                <p>Card content</p>
-                            </Card>
-                        </Col>
-                        <Col span={8} >
-                            <ProblemList/>
-                        </Col>
-                        <Col span={8} >
-                            <img height={200}  width={200} alt="example" src="https://miro.medium.com/max/3300/1*nUZTZdDBKuci35Ss42bhbQ.jpeg" />
-                        </Col>
-                    </Row>
+                  <ProblemList/>
                 </div>
             </Content>
             <Footer style={{color:'#00e',textAlign:'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
