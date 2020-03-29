@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Table,notification,Button,Popconfirm} from 'antd';
 import {data} from '../../data/data';
-
+import history from '../../routes/history';
 
 const ProblemList = () => {
     let columns = [
@@ -40,14 +40,7 @@ const ProblemList = () => {
     ];
 
     const seeDetails = item => {
-        notification.open({
-            message: 'Notification Title',
-            description:
-                'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-            onClick: () => {
-                console.log('Notification Clicked!');
-            },
-        });
+        history.push('/ProblemDetails');
     };
 
     return (
