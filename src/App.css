@@ -33,6 +33,9 @@
   padding: 24px;
   min-height: 280px;
 }
+.site-layout-background{
+  background: #fff;
+}
 .logo {
   width: 120px;
   height: 31px;
@@ -49,3 +52,5 @@
     transform: rotate(360deg);
   }
 }
+
+

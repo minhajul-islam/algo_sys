@@ -5,6 +5,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import { Row, Col } from 'antd';
 import { Card } from 'antd';
 import ProblemList from "./page/programming/ProblemList";
+import ProblemDetails from "./page/programming/ProblemDetails";
 const { Header, Content, Footer } = Layout;
 
 
