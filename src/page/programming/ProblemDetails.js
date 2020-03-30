@@ -1,15 +1,9 @@
 import React, {useState} from 'react';
-import {Table,notification,Button,Popconfirm} from 'antd';
-import { Layout, Menu, Breadcrumb,List ,Typography} from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import {Card} from 'antd';
+import { Layout, Menu, Breadcrumb,List } from 'antd';
 import {data} from '../../data/data';
-const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
-
-
-
-
-
+import CodeView from "../../components/problem-details/CodeView";
+const { Header, Content, Sider } = Layout;
 
 const ProblemDetails = () => {
 
@@ -54,7 +48,15 @@ const ProblemDetails = () => {
                             minHeight: 280,
                         }}
                     >
-                        Content
+                        <CodeView/>
+
+                        <Card title="Complexity" bordered={false}>
+                            Complexity content
+                        </Card>
+
+                        <Card title="Application" bordered={false}>
+                            Application content
+                        </Card>
                     </Content>
                 </Layout>
             </Layout>
