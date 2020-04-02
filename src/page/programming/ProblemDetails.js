@@ -1,23 +1,20 @@
 import React, {useState} from 'react';
-import {Table,notification,Button,Popconfirm} from 'antd';
-import { Layout, Menu, Breadcrumb,List ,Typography} from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import {Card} from 'antd';
+import {Layout, Menu, Breadcrumb, List, Button} from 'antd';
 import {data} from '../../data/data';
-const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
+import CodeView from "../../components/problem-details/CodeView";
 
-
-
-
-
+const {Header, Content, Sider} = Layout;
 
 const ProblemDetails = () => {
-
+    const [complexity, setComplexity] = useState('');
+    const [application, setApplication] = useState('');
+    const [code, setCode] = useState('');
 
     return (
         <Layout>
             <Header className="header">
-                <div className="logo" />
+                <div className="logo"/>
                 <Menu
                     theme="dark"
                     mode="horizontal"
@@ -35,13 +32,22 @@ const ProblemDetails = () => {
                         dataSource={data}
                         renderItem={item => (
                             <List.Item>
-                                {item.name}
+                                <Button
+                                    onClick={() => {
+                                        setComplexity(item.complexity);
+                                        setApplication(item.type);
+                                        setCode(item.date);
+                                    }}
+                                >
+                                    {item.name}
+                                </Button>
+
                             </List.Item>
                         )}
                     />
                 </Sider>
-                <Layout style={{ padding: '0 24px 24px' }}>
-                    <Breadcrumb style={{ margin: '16px 0' }}>
+                <Layout style={{padding: '0 24px 24px'}}>
+                    <Breadcrumb style={{margin: '16px 0'}}>
                         <Breadcrumb.Item>Home</Breadcrumb.Item>
                         <Breadcrumb.Item>List</Breadcrumb.Item>
                         <Breadcrumb.Item>App</Breadcrumb.Item>
@@ -54,7 +60,15 @@ const ProblemDetails = () => {
                             minHeight: 280,
                         }}
                     >
-                        Content
+                        <CodeView value={code}/>
+
+                        <Card title="Complexity" bordered={false}>
+                            {complexity}
+                        </Card>
+
+                        <Card title="Application" bordered={false}>
+                            {application}
+                        </Card>
                     </Content>
                 </Layout>
             </Layout>
